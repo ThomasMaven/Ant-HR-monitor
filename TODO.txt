@@ -1,0 +1,4 @@
+List of tasks TODO:
+- Add support for multiple languages
+- Add graph functionalities
+- Improve design of the app
