@@ -1,5 +1,4 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -18,13 +17,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="connDisconn"
-            android:text="Connect" />
+            android:text="@string/connect" />
 
         <TextView
             android:id="@+id/statusTextView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Status"
+            android:text="@string/status"
             android:textAlignment="center"
             android:gravity="center"
             android:textAppearance="?android:attr/textAppearanceMedium" />
@@ -43,7 +42,7 @@
             android:id="@+id/currentPulseTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Aktualny puls"
+            android:text="@string/current_pulse"
             android:textColor="#fff"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textSize="@dimen/activity_horizontal_margin"

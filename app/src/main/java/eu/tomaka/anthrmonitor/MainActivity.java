@@ -23,7 +23,6 @@ public class MainActivity extends Activity {
         aktualnyPuls = (TextView) findViewById(R.id.currentPulseTextView);
         //Create HRConnector object
         connector = new HRConnector(this);
-        connectButton.setText("Connect"); // starting up in disconnected state, hence button label says "Connect"
     }
 
     @Override

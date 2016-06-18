@@ -21,8 +21,7 @@ public class HRConnector
 {
     private boolean connected = false;
     private AntPlusHeartRatePcc hrPcc;
-//    private Recording r;
-//    private RecordingFile ri;
+
 
     public HRConnector (MainActivity a) {
         super(a);
@@ -33,7 +32,7 @@ public class HRConnector
         myact.setStatus("Connecting...");
         // register with the ANT+ plugin
         AntPlusHeartRatePcc.requestAccess(myact, myact, this, this);
-        myact.connectButton.setText("Disconnect");
+        myact.connectButton.setText(myact.getString(R.string.disconnect));
     }
 
     public void disconnect(boolean skipReleaseAccess) {
@@ -41,33 +40,19 @@ public class HRConnector
         if (!skipReleaseAccess) { hrPcc.releaseAccess(); }
         hrPcc = null;
         myact.setStatus("Disconnected");
-        // myAct.startStopButton.setEnabled(false);
-        myact.connectButton.setText("Connect");
+        myact.connectButton.setText(myact.getString(R.string.connect));
     }
 
     public boolean isConnected() {
         return connected;
     }
 
-    @Override
-    public void start() {
-        if (isConnected()) {
-            // we're connected
-        } else {
-            Toast.makeText(myact, "Please connect to HR belt first", Toast.LENGTH_SHORT).show();
-        }
-    }
+
 
     public void stop() {
         super.stop();
-        // disconnect in order to allow safe saving of the recording (otherwise ConcurrentModificationException comes?)
         disconnect(false);
-        // now that we know the time when the recording was stopped, set file names
-//        ri = new RecordingFile(myact, timeStarted,  timeStopped);
-        // detect peaks
-//        r.detectPeaks();
-        // and now save the files
-//        ri.save(r, true, true, true);
+
     }
 
     private void newBeat(HRRec hrrec) {
@@ -161,19 +146,6 @@ public class HRConnector
                 newBeat(hrrec);
             }
         });
-/*
-       hrPcc.subscribeHeartRateDataTimestampEvent(new IHeartRateDataTimestampReceiver() {
-    	   @Override
-    	   public void onNewHeartRateDataTimestamp(final int currentMessageCount, final BigDecimal timestampOfLastEvent) {
-    		   myAct.runOnUiThread(new Runnable() {
-    			   @Override
-    			   public void run() {
-				   // tv_msgsRcvdCount.setText(String.valueOf(currentMessageCount));
-				   // tv_timestampOfLastEvent.setText(String.valueOf(timestampOfLastEvent));
-    			   }
-    		   });
-    	   }
-       });
-*/
+
     }
 }

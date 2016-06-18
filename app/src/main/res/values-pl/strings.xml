@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ANT+ HR monitor</string>
+    <string name="connect">Połącz</string>
+    <string name="disconnect">Rozłącz</string>
+    <string name="status">Status</string>
+    <string name="current_pulse">Aktualny puls</string>
+    <string name="action_settings">Ustawienia</string>
+</resources>
